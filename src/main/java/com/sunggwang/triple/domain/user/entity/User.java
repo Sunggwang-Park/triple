@@ -1,4 +1,4 @@
-package com.sunggwang.triple.domain.user;
+package com.sunggwang.triple.domain.user.entity;
 
 import com.sunggwang.triple.config.BaseTimeEnity;
 import lombok.*;
