@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -18,7 +19,7 @@ public class User extends BaseTimeEnity {
 
     @Id
     @Column(name = "userId")
-    private Long id;
+    private UUID id;
 
     private Long point;
     
