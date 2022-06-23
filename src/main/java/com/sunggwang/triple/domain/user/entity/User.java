@@ -22,6 +22,11 @@ public class User extends BaseTimeEnity {
     private UUID id;
 
     private Long point;
+
+
+    public void getFirstReviewPoint() {
+        this.point += 1;
+    }
     
 
 }
