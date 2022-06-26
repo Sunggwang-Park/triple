@@ -1,4 +1,4 @@
-package com.sunggwang.triple.domain.review;
+package com.sunggwang.triple.domain.review.entity;
 
 import com.sunggwang.triple.config.BaseTimeEnity;
 import com.sunggwang.triple.domain.place.entity.Place;
