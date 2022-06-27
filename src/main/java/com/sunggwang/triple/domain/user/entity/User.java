@@ -21,8 +21,20 @@ public class User extends BaseTimeEnity {
     private Long point;
 
 
-    public void getFirstReviewPoint() {
+    public void earnFirstReviewPoint() {
         this.point += 1;
+    }
+
+    public void earnTextPoint() {
+        this.point += 1;
+    }
+
+    public void earnPhotoPoint() {
+        this.point += 1;
+    }
+
+    public void lostPoint() {
+        this.point -= 1;
     }
 
     public static User createUser(Long point) {
@@ -30,6 +42,7 @@ public class User extends BaseTimeEnity {
                 .point(point)
                 .build();
     }
-    
+
+
 
 }

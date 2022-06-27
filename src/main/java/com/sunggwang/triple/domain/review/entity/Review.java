@@ -8,6 +8,8 @@ import lombok.*;
 import javax.persistence.*;
 import javax.print.DocFlavor;
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 import java.util.UUID;
 
@@ -28,5 +30,8 @@ public class Review extends BaseTimeEnity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Place place;
+
+    private List<UUID> photos;
+
 
 }

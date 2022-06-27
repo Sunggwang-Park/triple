@@ -22,7 +22,7 @@ public class Place extends BaseTimeEnity {
 
     public void checkFirstReview(User user) {
         if (this.isFirstReview) {
-            user.getFirstReviewPoint();
+            user.earnFirstReviewPoint();
         }
     }
 }
