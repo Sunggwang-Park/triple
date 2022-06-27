@@ -3,10 +3,7 @@ package com.sunggwang.triple.domain.user.entity;
 import com.sunggwang.triple.config.BaseTimeEnity;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -17,8 +14,8 @@ import java.util.UUID;
 @Table(name="\"User\"") //MySQL 예약어 : USER
 public class User extends BaseTimeEnity {
 
-    @Id
-    @Column(name = "userId")
+    @Id @GeneratedValue(generator = "uuid2")
+    @Column(name = "userId", columnDefinition = "BINARY(16)")
     private UUID id;
 
     private Long point;
@@ -28,9 +25,8 @@ public class User extends BaseTimeEnity {
         this.point += 1;
     }
 
-    public static User createUser(UUID uid, Long point) {
+    public static User createUser(Long point) {
         return User.builder()
-                .id(uid)
                 .point(point)
                 .build();
     }

@@ -18,7 +18,7 @@ public class Place extends BaseTimeEnity {
     @Id
     private UUID id;
 
-    private Boolean isFirstReview = Boolean.TRUE;
+    private Boolean isFirstReview;
 
     public void checkFirstReview(User user) {
         if (this.isFirstReview) {

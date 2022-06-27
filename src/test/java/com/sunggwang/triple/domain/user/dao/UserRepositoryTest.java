@@ -7,10 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Transactional
 class UserRepositoryTest {
@@ -21,16 +17,15 @@ class UserRepositoryTest {
     @Test
     public void getUserTest() throws Exception {
         //given
-        UUID uid = UUID.fromString("3ede0ef2-92b7-4817-a5f3-0c575361f745");
-        User user = User.createUser(uid, 0L);
+        User user = User.createUser(0L);
         userRepository.save(user);
 
         //when
-        User referenceById = userRepository.getReferenceById(uid);
+        User user2 = userRepository.findById(user.getId()).get();
 
 
         //then
-        Assertions.assertThat(user).isEqualTo(referenceById);
+        Assertions.assertThat(user).isEqualTo(user2);
     }
 
 
