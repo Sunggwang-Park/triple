@@ -23,7 +23,6 @@ class UserRepositoryTest {
         //when
         User user2 = userRepository.findById(user.getId()).get();
 
-
         //then
         Assertions.assertThat(user).isEqualTo(user2);
     }

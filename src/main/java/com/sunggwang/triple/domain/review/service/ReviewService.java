@@ -14,7 +14,11 @@ public class ReviewService {
     private final UserRepository userRepository;
 
     public void getPoints(ReviewEventRequestDto dto) {
-        User user = userRepository.getReferenceById(dto.getUserId());
+        User user = userRepository.findById(dto.getUserId()).orElseThrow(
+                .orElseThrow(() -> {
+                    throw new CustomException(ErrorCode.NOT_FOUND_USER, "존재하지 않는 userId :" + userId);
+                });
+        );
 
 
     }
