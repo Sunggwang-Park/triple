@@ -27,6 +27,13 @@ public class User extends BaseTimeEnity {
     public void getFirstReviewPoint() {
         this.point += 1;
     }
+
+    public static User createUser(UUID uid, Long point) {
+        return User.builder()
+                .id(uid)
+                .point(point)
+                .build();
+    }
     
 
 }
