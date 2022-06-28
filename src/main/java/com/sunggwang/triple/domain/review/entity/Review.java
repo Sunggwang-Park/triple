@@ -5,12 +5,12 @@ import com.sunggwang.triple.domain.place.entity.Place;
 import com.sunggwang.triple.domain.user.entity.User;
 import lombok.*;
 
-import javax.persistence.*;
-import javax.print.DocFlavor;
-import javax.swing.*;
-import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.List;
-import java.util.Stack;
+
 import java.util.UUID;
 
 @Entity

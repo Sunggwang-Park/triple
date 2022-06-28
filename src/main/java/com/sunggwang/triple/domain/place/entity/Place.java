@@ -18,10 +18,10 @@ public class Place extends BaseTimeEnity {
     @Id
     private UUID id;
 
-    private Boolean isFirstReview;
+    private Boolean noReview;
 
     public void checkFirstReview(User user) {
-        if (this.isFirstReview) {
+        if (this.noReview) {
             user.earnFirstReviewPoint();
         }
     }
