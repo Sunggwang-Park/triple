@@ -10,6 +10,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,7 +28,6 @@ public class ReviewEventResponseDto {
     private PlaceResponseDto place; //: "2e4baf1c-5acb-4efb-a1af-eddada31b00f"
 
     public static ReviewEventResponseDto toDto(Review review, User user, Place place) {
-
         return ReviewEventResponseDto.builder()
                 .reviewId(review.getId())
                 .content(review.getContent())
@@ -35,6 +35,5 @@ public class ReviewEventResponseDto {
                 .user(UserResponseDto.toDto(user))
                 .place(PlaceResponseDto.toDto(place))
                 .build();
-
     }
 }

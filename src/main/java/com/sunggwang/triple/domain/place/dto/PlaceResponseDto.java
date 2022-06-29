@@ -11,13 +11,11 @@ import java.util.UUID;
 public class PlaceResponseDto {
 
     private UUID placeId;
-    private Boolean isFirstReview;
 
 
     public static PlaceResponseDto toDto(Place place) {
         return PlaceResponseDto.builder()
                 .placeId(place.getId())
-                .isFirstReview(place.getNoReview())
                 .build();
     }
 
