@@ -35,6 +35,7 @@ public class ReviewEventRequestDto {
                 .user(user)
                 .place(place)
                 .photos(dto.attachedPhotoIds)
+                .isFirstReview(false)
                 .build();
     }
 

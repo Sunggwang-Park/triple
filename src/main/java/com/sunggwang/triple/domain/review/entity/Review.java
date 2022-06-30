@@ -35,6 +35,17 @@ public class Review extends BaseTimeEnity {
     private Boolean isFirstReview;
 
 
+
+    // "ADD"
+    public void update() {
+        if (this.content.length() >= 1) {
+            user.earnTextPoint();
+        }
+        if (this.photos.size() >= 1) {
+            user.earnPhotoPoint();
+        }
+    }
+
     public void update(User user, String content, List<UUID> photoIds) {
         if (content.length() == 0) {
             if (this.content.length() >= 1) {
