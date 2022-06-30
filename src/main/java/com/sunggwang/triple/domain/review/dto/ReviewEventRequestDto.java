@@ -36,6 +36,7 @@ public class ReviewEventRequestDto {
                 .place(place)
                 .photos(dto.attachedPhotoIds)
                 .isFirstReview(false)
+                .history("")
                 .build();
     }
 
