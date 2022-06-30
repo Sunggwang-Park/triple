@@ -38,14 +38,17 @@ public class ReviewService {
 
 
         if (dto.getAction().equals("ADD")) {
-            if (dto.getContent().length() >= 1) {
-                user.earnTextPoint();
-            }
-            if (dto.getAttachedPhotoIds().size() >= 1) {
-                user.earnPhotoPoint();
-            }
-
             Review review = dto.toEntity(dto, user, place);
+            review.update();
+
+//            if (dto.getContent().length() >= 1) {
+//                user.earnTextPoint();
+//            }
+//            if (dto.getAttachedPhotoIds().size() >= 1) {
+//                user.earnPhotoPoint();
+//            }
+
+//            Review review = dto.toEntity(dto, user, place);
             place.checkFirstReview(user,review);
             reviewRepository.save(review);
 
