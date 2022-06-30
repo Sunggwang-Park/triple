@@ -24,7 +24,6 @@ public class Place extends BaseTimeEnity {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Review> reviews;
 
-    private Boolean noReview;
 
     public void checkFirstReview(User user,Review review) {
         if (reviews.size() == 0) {
