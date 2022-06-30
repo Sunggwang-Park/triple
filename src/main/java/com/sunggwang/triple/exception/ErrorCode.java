@@ -17,11 +17,10 @@ public enum ErrorCode {
 
     //REVIEW 예외
     NOT_FOUND_REVIEW(HttpStatus.NOT_FOUND, "해당 리뷰를 찾을 수 없습니다"),
-    DIARY_ACCESS_DENY(HttpStatus.FORBIDDEN, "다른 유저는 접근할 수 없습니다"),
+    EXIST_REVIEW(HttpStatus.BAD_REQUEST, "이미 등록된 리뷰입니다."),
 
     //Place 예외
     NOT_FOUND_PLACE(HttpStatus.NOT_FOUND, "해당 장소를 찾을 수 없습니다");
-//    DIARY_ACCESS_DENY(HttpStatus.FORBIDDEN, "다른 유저는 접근할 수 없습니다");
 
 
 
