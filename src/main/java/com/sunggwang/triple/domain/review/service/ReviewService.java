@@ -24,7 +24,6 @@ public class ReviewService {
     private final PlaceRepository placeRepository;
 
     @Transactional
-    @ResponseBody
     public ReviewEventResponseDto getPoints(ReviewEventRequestDto dto) {
         System.out.println("dto = " + dto);
         User user = userRepository.findById(dto.getUserId())
@@ -36,52 +35,33 @@ public class ReviewService {
                     throw new CustomException(ErrorCode.NOT_FOUND_PLACE, "존재하지 않는 placeId : " + dto.getPlaceId());
                 });
 
+        Review review;
+
 
         if (dto.getAction().equals("ADD")) {
-            Review review = dto.toEntity(dto, user, place);
+            review = dto.toEntity(dto, user, place);
             review.update();
 
-//            if (dto.getContent().length() >= 1) {
-//                user.earnTextPoint();
-//            }
-//            if (dto.getAttachedPhotoIds().size() >= 1) {
-//                user.earnPhotoPoint();
-//            }
-
-//            Review review = dto.toEntity(dto, user, place);
             place.checkFirstReview(user,review);
             reviewRepository.save(review);
 
-
         } else {    //"MOD"
-            Review review = reviewRepository.findById(dto.getReviewId())
+            review = reviewRepository.findById(dto.getReviewId())
                     .orElseThrow(() -> {
                         throw new CustomException(ErrorCode.NOT_FOUND_REVIEW, "존재하지 않는 reviewId :" + dto.getReviewId());
                     });
-//            if (dto.getContent() == null) {
-//                if (review.getContent().length() >= 1) {
-//                    user.lostPoint();
-//                }
-//            }
-//            if (dto.getAttachedPhotoIds() == null) {
-//                if (review.getPhotos().size() >= 1) {
-//                    user.lostPoint();
-//                }
-//            }
+
             //review 업데이트
             review.update(user, dto.getContent(), dto.getAttachedPhotoIds());
 
-
-            return ReviewEventResponseDto.toDto(review, user, place);
-
         }
 
+        return ReviewEventResponseDto.toDto(review, user, place);
 
-        return null;
     }
 
     @Transactional
-    public void lostPoints(ReviewEventRequestDto dto) {
+    public ReviewEventResponseDto lostPoints(ReviewEventRequestDto dto) {
         User user = userRepository.findById(dto.getUserId())
                 .orElseThrow(() -> {
                     throw new CustomException(ErrorCode.NOT_FOUND_USER, "존재하지 않는 userId : " + dto.getUserId());
@@ -97,10 +77,10 @@ public class ReviewService {
 
         //review 업데이트
         review.delete(user,place);
-//        place.
-//        reviewRepository.delete(review);
+
         reviewRepository.deleteById(review.getId());
 
+        return ReviewEventResponseDto.toDto(review, user, place);
 
     }
 }
