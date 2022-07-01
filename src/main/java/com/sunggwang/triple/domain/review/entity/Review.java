@@ -1,6 +1,6 @@
 package com.sunggwang.triple.domain.review.entity;
 
-import com.sunggwang.triple.config.BaseTimeEnity;
+import com.sunggwang.triple.config.BaseTimeEntity;
 import com.sunggwang.triple.config.PointHistoryListener;
 import com.sunggwang.triple.domain.place.entity.Place;
 import com.sunggwang.triple.domain.user.entity.User;
@@ -17,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(value = PointHistoryListener.class)
-public class Review extends BaseTimeEnity {
+public class Review extends BaseTimeEntity {
 
     @Id
     @Column(columnDefinition = "BINARY(16)")

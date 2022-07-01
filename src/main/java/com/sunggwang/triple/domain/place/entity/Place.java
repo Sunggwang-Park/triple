@@ -1,6 +1,6 @@
 package com.sunggwang.triple.domain.place.entity;
 
-import com.sunggwang.triple.config.BaseTimeEnity;
+import com.sunggwang.triple.config.BaseTimeEntity;
 import com.sunggwang.triple.domain.review.entity.Review;
 import com.sunggwang.triple.domain.user.entity.User;
 import lombok.*;
@@ -15,7 +15,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Place extends BaseTimeEnity {
+public class Place extends BaseTimeEntity {
 
     @Id
     @Column(columnDefinition = "BINARY(16)")

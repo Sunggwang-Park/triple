@@ -1,6 +1,6 @@
 package com.sunggwang.triple.domain.user.entity;
 
-import com.sunggwang.triple.config.BaseTimeEnity;
+import com.sunggwang.triple.config.BaseTimeEntity;
 import com.sunggwang.triple.domain.review.entity.Review;
 import lombok.*;
 
@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name="\"User\"") //MySQL 예약어 : USER
-public class User extends BaseTimeEnity {
+public class User extends BaseTimeEntity {
 
     @Id
     @Column(name = "userId", columnDefinition = "BINARY(16)")
